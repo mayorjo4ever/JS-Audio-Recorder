@@ -180,7 +180,7 @@
                                     {numChannels: 1}
                             );
                             myRecorder.objects.recorder.record();
-							myRecorder.startCount();
+							
                         }).catch(function (err) {});
                     },
                     stop: function (listObject) {
@@ -218,7 +218,6 @@
                                 });
                             }
                         }
-						myRecorder.stopCount();
                     }
                 };
 
@@ -236,10 +235,11 @@
                     // Toggle
                     if (!buttonState) {
                         $(this).attr('data-recording', 'true');
-                        myRecorder.start(); 
+                        myRecorder.start(); myRecorder.startCount();
                     } else {
                         $(this).attr('data-recording', '');
                         myRecorder.stop(listObject); 
+						myRecorder.stopCount();
                     }
                 });
             });
